@@ -1,6 +1,7 @@
 
 import User from "../models/user.js"
 import mailSender from "../utils/mailSender.js"
+import bcrypt from "bcrypt"
 
 export const resetPasswordToken = async(req,res)=>{
     try {
@@ -33,6 +34,55 @@ export const resetPasswordToken = async(req,res)=>{
         return res.status(500).json({
                 success: false,
                 message: "Something went wrong while sending reset password mail",
+            });
+    }
+}
+
+//resetPassword
+
+export const resetPassword = async (req,res)=>{
+    try {
+        const {password,confirmPassword,token} = req.body;
+        
+        //validation
+        if(password !== confirmPassword)
+        {
+            return res.json({
+                success:false,
+                message:"Passwords are not matching"
+            });
+        }
+
+        const user = await User.findOne({token});
+        if(!user)
+        {
+            return res.json({
+                success:false,
+                message:"Token is invalid"
+            });
+        }
+        //check token expired
+        if(user.resetPasswordExpires < Date.now())
+        {
+            return res.json({
+                success:false,
+                message:"Token expired, please regenerate your token",
+            });
+        }
+        
+        //hash password
+        const hashedPassword = await bcrypt.hash(password,10);
+        const updatedUser = await User.findOneAndUpdate({email:user.email},{password:hashedPassword},{new:true});
+
+        return res.status(200).json({
+                success:true,
+                message:"Password reset successfully"
+            });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+                success:false,
+                message:"Something went wrong while resetting password "
             });
     }
 }
