@@ -4,108 +4,94 @@ import Course from "../models/course.js"
 import { uploadImageToCloudinary } from "../utils/imageUploader.js"
 
 export const createCourse = async (req,res)=>{
-    try {
-        const {courseName,courseDescription,whatYourWillLearn,price,tag} = req.body;
+       try {
+        const{courseName, courseDescription, whatWillYouLearn, price, category,tags,status, instructions} = req.body;
 
-        //get thumbnail
         const thumbnail = req.files.thumbnailImage;
-
-        //validation
-        if(!courseName || !courseDescription || !whatYourWillLearn || !price || !tag || !thumbnail)
-        {
+        console.log("Thumbnail in course creation is", thumbnail)
+        if(!courseName || !courseDescription || !whatWillYouLearn || !price || !category || !thumbnail || !status || !instructions) {
             return res.status(400).json({
                 success:false,
-                message:"All fields are required"
+                message:'All fields are required',
             });
         }
 
-        //check instructor
-        const userId = req.user.id;
-        const instructor = await User.findById(userId);
+        const instructorId = req.user.id;
 
-        if(!instructor)
-        {
+        const categoryDetails = await Category.findById(category);
+        if(!categoryDetails) {
             return res.status(404).json({
                 success:false,
-                message:"Instructor details not found"
+                message:'Category Details not found',
             });
         }
 
-        //check given tag is valid 
-        const tagDetails = await Tag.findById(tag);
-        if(!tagDetails)
-        {
-            return res.status(404).json({
-                success:false,
-                message:"Tag details not found"
-            });
-        }
-
-        //upload image to cloudinary
         const thumbnailImage = await uploadImageToCloudinary(thumbnail,process.env.FOLDER_NAME);
 
-        //create entry for new course
         const newCourse = await Course.create({
             courseName,
-            courseDescription,
-            instructor:instructor._id,
-            whatYouWillLearn,
+            description:courseDescription,
+            whatWillYouLearn,
             price,
-            tag:tagDetails._id,
             thumbnail:thumbnailImage.secure_url,
-        });
+            category,
+            instructor:instructorId,
+            tags,
+            status,
+            instructions
+        })
 
-        // add new course to instructor schema
-        await User.findByIdAndUpdate(
-            {_id:instructor._id},
+        await Category.findByIdAndUpdate(category,
             {
-                $push:{
-                    courses:newCourse._id,
+                $push: {
+                    course: newCourse._id
                 }
-            },
-            {new:true}
-        );
-        
-        //update tag ka schema
-        //todo
+            })
 
-        return res.status(201).json({
-                success:true,
-                message:"Course Created Successfully"
-            });
-
+        await User.findByIdAndUpdate(instructorId, {
+            $push: {
+                courses: newCourse._id
+            }})
+            
+        return res.status(200).json({
+            success:true,
+            message:'Course created successfully',
+            newCourse
+        })    
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return res.status(500).json({
-                success:true,
-                message:"Failed to create course",
-                error:error.message,
-            });
+            success:false,
+            message:'Failed to create Course',
+            error: error.message,
+        })
     }
+
 }
 
 // getAllCourses 
 export const showAllCourses = async (req,res)=>{
     try {
-        const allCourses = await Course.find({},{
-            courseName:true,
-            price:true,
-            thumbnail:true,
-            instructor:true,
-            ratingAndReviews:true,
-            studentsEnrolled:true
+        const allCourses = Course.find({}, {
+            courseName: true,
+            price: true,
+            thumbnail: true,
+            instructor: true,
+            ratingAndReviews: true,
+            studentsEnroled: true,
         }).populate("instructor").exec();
+
         return res.status(200).json({
-                success:true,
-                message:"All courses fetched successfully",
-                data:allCourses,
-            });
+            success:true,
+            message:'Data for all courses fetched successfully',
+            data:allCourses,
+        })
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return res.status(500).json({
-                success:true,
-                message:"Failed to create course",
-                error:error.message,
-            });
+            success:false,
+            message:'Failed to show all Courses',
+            error: error.message,
+        })
     }
 }

@@ -2,6 +2,7 @@
 import User from "../models/user.js"
 import mailSender from "../utils/mailSender.js"
 import bcrypt from "bcrypt"
+import crypto from "crypto"
 
 export const resetPasswordToken = async(req,res)=>{
     try {

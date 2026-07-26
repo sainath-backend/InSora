@@ -33,9 +33,13 @@ const courseSchema = new mongoose.Schema({
     thumbnail:{
         type:String,
     },
-    tag:{
+    tags:{
+        type:[String],
+        required:true,
+    },
+    category:{
         type:mongoose.Schema.Types.ObjectId,
-        ref: "Tag",
+        ref:"Category"
     },
     studentsEnrolled:[
         {
@@ -43,7 +47,10 @@ const courseSchema = new mongoose.Schema({
             ref :"User",
             required: true
         }
-    ]
+    ],
+    instructions: {
+		type: String,
+	}
 });
 
 const Course = mongoose.model("Course",courseSchema);
