@@ -1,9 +1,9 @@
-const Category = require('../models/Category');
-const Course = require('../models/Course')
+import Category from "../models/category.js"
+import Course from "../models/course.js"
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
   }
-exports.createCategory = async (req,res) =>{
+export const createCategory = async (req,res) =>{
     try {
         const {name, description} =  req.body;
 
@@ -38,7 +38,7 @@ exports.createCategory = async (req,res) =>{
     }
 }
 
-exports.showAllCategories = async (req,res) => {
+export const showAllCategories = async (req,res) => {
 
     try {
         const allCategories =  await Category.find({},{name:true,
@@ -57,7 +57,7 @@ exports.showAllCategories = async (req,res) => {
     }
 }
 
-exports.categoryPageDetails = async (req,res) => {
+export const categoryPageDetails = async (req,res) => {
     try {
         const { categoryId } = req.body
       console.log("PRINTING CATEGORY ID: ", categoryId);
