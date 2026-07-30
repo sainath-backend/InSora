@@ -25,6 +25,14 @@ const userSchema = new mongoose.Schema({
         enum:["Admin","Student","Instructor"],
         required:true,
     },
+    active:{
+        type:Boolean,
+        default:true,
+    },
+    approved:{
+        type:Boolean,
+        default:true,
+    },
     additionalDetails:{
         type:mongoose.Schema.Types.ObjectId,
         ref: "Profile",
@@ -38,7 +46,6 @@ const userSchema = new mongoose.Schema({
     ],
     image:{
         type:String,
-        required: true,
     },
     token:{
         type:String,
@@ -52,7 +59,7 @@ const userSchema = new mongoose.Schema({
             ref: "CourseProgress",
         }
     ],
-});
+},{timestamps:true});
 
 const User = mongoose.model("User",userSchema);
 export default User;

@@ -1,5 +1,7 @@
 import Category from "../models/category.js"
 import Course from "../models/course.js"
+import mongoose from "mongoose"
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
   }
@@ -7,10 +9,10 @@ export const createCategory = async (req,res) =>{
     try {
         const {name, description} =  req.body;
 
-        if(!name || !description){
-            return res.status(401).json({
+        if(!name){
+            return res.status(400).json({
                 success:false,
-                message:"Tag name or description not available"
+                message:"All fields are required"
             })
         }
 
@@ -28,7 +30,7 @@ export const createCategory = async (req,res) =>{
 
         return res.status(200).json({
             success:true,
-            message:"Tag created successfully"
+            message:"Category created successfully"
         })
     } catch (error) {
         return res.status(500).json({
@@ -46,7 +48,6 @@ export const showAllCategories = async (req,res) => {
         
             return res.status(200).json({
                 success:true,
-                message:"All tags received",
                 data:allCategories
             })  
     } catch (error) {
@@ -60,7 +61,6 @@ export const showAllCategories = async (req,res) => {
 export const categoryPageDetails = async (req,res) => {
     try {
         const { categoryId } = req.body
-      console.log("PRINTING CATEGORY ID: ", categoryId);
       // Get courses for the specified category
       const selectedCourses = await Category.findById(categoryId)
         .populate({
@@ -92,7 +92,6 @@ export const categoryPageDetails = async (req,res) => {
         _id: { $ne: categoryId },
         course: { $not: { $size: 0 } }
       })
-      console.log("categoriesExceptSelected", categoriesExceptSelected)
       let differentCourses = await Category.findOne(
         categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
           ._id
@@ -113,17 +112,14 @@ export const categoryPageDetails = async (req,res) => {
         })
         .exec()
       const allCourses = allCategories.flatMap((category) => category.courses)
-      const mostSellingCourses = await Course.find({ status: 'Published' })
-      .sort({ "studentsEnrolled.length": -1 }).populate("ratingAndReviews") // Sort by studentsEnrolled array length in descending order
-      .exec();
+      const mostSellingCourses = allCourses
+       .sort((a, b) => b.sold - a.sold)
+      .slice(0, 10)
 
         res.status(200).json({
 			selectedCourses: selectedCourses,
 			differentCourses: differentCourses,
 			mostSellingCourses,
-            name: selectedCourses.name,
-            description: selectedCourses.description,
-            success:true
 		})
     } catch (error) {
         return res.status(500).json({
