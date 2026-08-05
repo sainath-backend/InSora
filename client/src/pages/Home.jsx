@@ -7,6 +7,9 @@ import Banner from "../assets/images/banner.mp4"
 import CodeBlock from '../components/core/HomePage/CodeBlock.jsx'
 import TimelineSection from "../components/core/HomePage/TimelineSection.jsx"
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection.jsx"
+import InstructorSection from '../components/core/HomePage/InstructorSection.jsx'
+import Footer from '../components/common/Footer.jsx'
+import ExploreMore from '../components/core/HomePage/ExploreMore.jsx'
 
 function Home() {
   return (
@@ -119,7 +122,7 @@ function Home() {
               backgroundGradient={<div className="codeblock1 absolute"></div>}
           />
         </div>
-
+        <ExploreMore/>
       </div>
 
 
@@ -164,13 +167,19 @@ function Home() {
           <TimelineSection/>
           <LearningLanguageSection/>
         </div>
+      </div>
 
+      {/* section3 */}
+      <div className='w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white'>
+        <InstructorSection/>
+        
+        <h2 className='text-center text-4xl font-semibold mt-10'>review from Other Learners</h2>
+        {/* Review Slider here */}
       </div>
 
 
-      {/* section3 */}
-
-      {/* section4 */}
+      {/* Footer */}
+      <Footer/>
 
     </div>
   )
