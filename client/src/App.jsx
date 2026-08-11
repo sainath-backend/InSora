@@ -8,6 +8,7 @@ import OpenRoute from "./components/core/Auth/OpenRoute.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import UpdatePassword from './pages/UpdatePassword.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
+import About from './pages/About.jsx';
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
           element={
             <OpenRoute>
               <Login />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="about"
+          element={
+            <OpenRoute>
+              <About />
             </OpenRoute>
           }
         />
