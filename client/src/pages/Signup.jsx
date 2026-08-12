@@ -1,5 +1,5 @@
 import signupImg from "../assets/images/signup.jpg"
-import Template from "../components/core/Auth/Template"
+import Template from "../components/core/Auth/Template.jsx"
 
 function Signup() {
   return (
