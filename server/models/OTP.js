@@ -5,7 +5,9 @@ import emailTemplate from "../mail/templates/emailVerificationTemplate.js"
 const OTPSchema = new mongoose.Schema({
     email:{
         type:String,
-        required: true
+        required: true,
+        trim:true,
+        lowercase:true,
     },
     otp:{
         type:String,
@@ -13,7 +15,7 @@ const OTPSchema = new mongoose.Schema({
     },
     createdAt:{
         type:Date,
-        default:Date.now(),
+        default:Date.now,
         expires: 5*60,
     }
 });
