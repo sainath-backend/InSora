@@ -13,6 +13,7 @@ import ProtectedRoute from "./components/core/Auth/ProtectedRoute";
 import PageNotFound from "./pages/PageNotFound";
 
 import Dashboard from "./pages/Dashboard";
+import Contact from './pages/contact.jsx';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Navbar/>
       <Routes>
          <Route path="/" element={<Home />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact/>} />
         <Route path="/about" element={<About />} />
         {/* <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="courses/:courseId" element={<CourseDetails />} /> */}
