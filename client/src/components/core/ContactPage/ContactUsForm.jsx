@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 
 import CountryCode from '../../../data/countrycode.json'
-import { apiConnector } from "../../../services/apiconnector.js"
+import { apiConnector } from "../../../services/apiConnector.js"
 import { contactusEndpoint } from "../../../services/apis.js"
 
 

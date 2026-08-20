@@ -6,7 +6,7 @@ import { Link, matchPath, useLocation } from "react-router-dom";
 
 import logo from "../../assets/logo/Logo-Full-Light.png";
 import { NavbarLinks } from "../../data/navbar-links.js";
-import { apiConnector } from "../../services/apiconnector.js";
+import { apiConnector } from "../../services/apiConnector.js";
 import { categories } from "../../services/apis.js";
 import { ACCOUNT_TYPE } from "../../utils/constants.js";
 import ProfileDropdown from "../core/Auth/ProfileDropDown.jsx";

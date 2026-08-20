@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {Routes,Route} from "react-router-dom"
 import Home from "./pages/Home.jsx"
 import Navbar from './components/common/Navbar.jsx'
@@ -10,9 +10,11 @@ import UpdatePassword from './pages/UpdatePassword.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
 import About from './pages/About.jsx';
 import ProtectedRoute from "./components/core/Auth/ProtectedRoute";
-import PageNotFound from "./pages/PageNotFound";
+import PageNotFound from "./pages/PageNotFound.jsx";
 
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard.jsx";
+import MyProfile from "./components/core/Dashboard/MyProfile.jsx";
+import Settings from "./components/core/Dashboard/Settings/Settings";
 import Contact from './pages/contact.jsx';
 
 
@@ -79,8 +81,8 @@ function App() {
           </ProtectedRoute>
         }
         >
-          {/* <Route path="dashboard/my-profile" element={<MyProfile />} />
-          <Route path="dashboard/Settings" element={<Settings />} /> */}
+          <Route path="dashboard/my-profile" element={<MyProfile/>} /> 
+          <Route path="dashboard/Settings" element={<Settings />} />
 
           {/* Route only for Admin */}
           {/* create category, all students, all instructors */}
