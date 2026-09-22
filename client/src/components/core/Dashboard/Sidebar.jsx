@@ -3,16 +3,16 @@ import { VscSignOut } from "react-icons/vsc"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { sidebarLinks } from '../../../data/dashboard-links.js';
-import { logout } from "../../../services/operations/authAPI.js"
-import ConfirmationModal from "../../common/ConfirmationModal.jsx"
-import SidebarLink from "./SidebarLink.jsx"
-import Loading from './../../common/Loading.jsx';
+import { sidebarLinks } from '../../../data/dashboard-links';
+import { logout } from "../../../services/operations/authAPI"
+import ConfirmationModal from "../../common/ConfirmationModal"
+import SidebarLink from "./SidebarLink"
+import Loading from './../../common/Loading';
 
 import { HiMenuAlt1 } from 'react-icons/hi'
 import { IoMdClose } from 'react-icons/io'
 
-import { setOpenSideMenu, setScreenSize } from "../../../slices/sidebarSlice.js";
+import { setOpenSideMenu, setScreenSize } from "../../../slices/sidebarSlice";
 
 
 
