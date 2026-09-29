@@ -1,9 +1,9 @@
 import { toast } from "react-hot-toast"
 
-import { setUser } from "../../slices/profileSlice.js"
-import { apiConnector } from "../apiConnector.js"
-import { settingsEndpoints } from "../apis.js"
-import { logout } from "./authAPI.js"
+import { setUser } from "../../slices/profileSlice"
+import { apiConnector } from "../apiConnector"
+import { settingsEndpoints } from "../apis"
+import { logout } from "./authAPI"
 
 const {
   UPDATE_DISPLAY_PICTURE_API,
