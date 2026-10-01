@@ -39,7 +39,7 @@ export default function UpdatePassword() {
           <div className="flex flex-col gap-5 lg:flex-row">
           {/* Current Password */}
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="oldPassword" className="lable-style">
+              <label htmlFor="oldPassword" className="label-style text-richblue-5">
                 Current Password
               </label>
 
@@ -48,7 +48,7 @@ export default function UpdatePassword() {
                 name="oldPassword"
                 id="oldPassword"
                 placeholder="Enter Current Password"
-                className="form-style"
+                className="form-style text-richblue-5"
                 {...register("oldPassword", { required: true })}
               />
 
@@ -72,7 +72,7 @@ export default function UpdatePassword() {
 
             {/* new password */}
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="newPassword" className="lable-style">
+              <label htmlFor="newPassword" className="lable-style text-richblue-5">
                 New Password
               </label>
 
@@ -81,7 +81,7 @@ export default function UpdatePassword() {
                 name="newPassword"
                 id="newPassword"
                 placeholder="Enter New Password"
-                className="form-style"
+                className="form-style text-richblue-5"
                 {...register("newPassword", { required: true })}
               />
 
@@ -104,7 +104,7 @@ export default function UpdatePassword() {
 
             {/*confirm new password */}
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
-              <label htmlFor="confirmNewPassword" className="lable-style">
+              <label htmlFor="confirmNewPassword" className="lable-style text-richblue-5">
                 Confirm New Password
               </label>
 
@@ -113,7 +113,7 @@ export default function UpdatePassword() {
                 name="confirmNewPassword"
                 id="confirmNewPassword"
                 placeholder="Enter Confirm New Password"
-                className="form-style"
+                className="form-style text-richblue-5"
                 {...register("confirmNewPassword", { required: true })}
               />
 

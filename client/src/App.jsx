@@ -16,6 +16,8 @@ import Dashboard from "./pages/Dashboard.jsx";
 import MyProfile from "./components/core/Dashboard/MyProfile.jsx";
 import Settings from "./components/core/Dashboard/Settings/Settings";
 import Contact from './pages/contact.jsx';
+import Catalog from "../src/pages/Catalog.jsx"
+import CourseDetails from "../src/pages/CourseDetails.jsx"
 
 
 function App() {
@@ -26,8 +28,8 @@ function App() {
          <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="catalog/:catalogName" element={<Catalog />} />
-        <Route path="courses/:courseId" element={<CourseDetails />} /> */}
+        <Route path="catalog/:catalogName" element={<Catalog />} />
+        <Route path="courses/:courseId" element={<CourseDetails />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
