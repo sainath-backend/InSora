@@ -3,7 +3,7 @@ import { Link, matchPath, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { NavbarLinks } from "../../data/navbar-links"
-import studyNotionLogo from '../../assets/logo/Logo-Full-Light.png'
+import inSoraLogo from '../../assets/logo/rzp_logo.png'
 import { fetchCourseCategories } from './../../services/operations/courseDetailsAPI';
 
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
@@ -90,7 +90,7 @@ const Navbar = () => {
             <div className='flex w-11/12 max-w-maxContent items-center justify-between '>
                 {/* logo */}
                 <Link to="/">
-                    <img src={studyNotionLogo} width={160} height={42} loading='lazy' />
+                    <img src={inSoraLogo} width={160} height={42} loading='lazy' />
                 </Link>
 
                 {/* Nav Links - visible for only large devices*/}
