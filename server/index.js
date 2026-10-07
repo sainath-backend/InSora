@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://insora-nxjd.onrender.com",
     credentials:true,
 }));
 dotenv.config();
