@@ -2,7 +2,7 @@ import React from "react"
 
 import Footer from "../components/common/Footer.jsx"
 import ContactDetails from "../components/core/ContactPage/ContactDetails"
-import ContactForm from "../components/core/ContactPage/ContactForm"
+import ContactForm from "../components/core/ContactPage/ContactForm.jsx"
 import ReviewSlider from '../components/common/ReviewSlider';
 
 

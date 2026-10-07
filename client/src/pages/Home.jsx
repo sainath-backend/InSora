@@ -22,17 +22,17 @@ import { motion } from 'framer-motion'
 import { fadeIn } from './../components/common/motionFrameVarients';
 
 // background random images
-import backgroundImg1 from '../assets/Images/random bg img/coding bg1.jpg'
-import backgroundImg2 from '../assets/Images/random bg img/coding bg2.jpg'
-import backgroundImg3 from '../assets/Images/random bg img/coding bg3.jpg'
-import backgroundImg4 from '../assets/Images/random bg img/coding bg4.jpg'
-import backgroundImg5 from '../assets/Images/random bg img/coding bg5.jpg'
-import backgroundImg6 from '../assets/Images/random bg img/coding bg6.jpeg'
-import backgroundImg7 from '../assets/Images/random bg img/coding bg7.jpg'
-import backgroundImg8 from '../assets/Images/random bg img/coding bg8.jpeg'
-import backgroundImg9 from '../assets/Images/random bg img/coding bg9.jpg'
-import backgroundImg10 from '../assets/Images/random bg img/coding bg10.jpg'
-import backgroundImg111 from '../assets/Images/random bg img/coding bg11.jpg'
+import backgroundImg1 from '../assets/Images/randomBgimg/codingbg1.jpg'
+import backgroundImg2 from '../assets/Images/randombgimg/codingbg2.jpg'
+import backgroundImg3 from '../assets/Images/randombgimg/codingbg3.jpg'
+import backgroundImg4 from '../assets/Images/randombgimg/codingbg4.jpg'
+import backgroundImg5 from '../assets/Images/randombgimg/codingbg5.jpg'
+import backgroundImg6 from '../assets/Images/randombgimg/codingbg6.jpeg'
+import backgroundImg7 from '../assets/Images/randombgimg/codingbg7.jpg'
+import backgroundImg8 from '../assets/Images/randombgimg/codingbg8.jpeg'
+import backgroundImg9 from '../assets/Images/randombgimg/codingbg9.jpg'
+import backgroundImg10 from '../assets/Images/randombgimg/codingbg10.jpg'
+import backgroundImg111 from '../assets/Images/randombgimg/codingbg11.jpg'
 
 const randomImges = [
     backgroundImg1,
