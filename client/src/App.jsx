@@ -16,7 +16,7 @@ import PageNotFound from "./pages/PageNotFound.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import MyProfile from "./components/core/Dashboard/MyProfile.jsx";
 import Settings from "./components/core/Dashboard/Settings/Settings";
-import Contact from './pages/contact.jsx';
+import Contact from './pages/Contact.jsx';
 import Catalog from "../src/pages/Catalog.jsx"
 import CourseDetails from "../src/pages/CourseDetails.jsx"
 
@@ -24,7 +24,7 @@ import MyCourses from './components/core/Dashboard/MyCourses.jsx';
 import EditCourse from './components/core/Dashboard/EditCourse/EditCourse.jsx';
 import Instructor from './components/core/Dashboard/Instructor.jsx';
 
-import Cart from "./components/core/Dashboard/Cart/Cart";
+import Cart from "./components/core/Dashboard/Cart/Cart.jsx";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import AddCourse from "./components/core/Dashboard/AddCourse/AddCourse";
 

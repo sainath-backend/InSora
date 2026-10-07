@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component"
 import { useDispatch, useSelector } from "react-redux"
 
 import { removeFromCart } from "../../../../slices/cartSlice"
-import Img from './../../../common/Img';
+import Img from '../../../common/Img';
 
 export default function RenderCartCourses() {
   const { cart } = useSelector((state) => state.cart)
