@@ -22,7 +22,7 @@ import { motion } from 'framer-motion'
 import { fadeIn } from './../components/common/motionFrameVarients';
 
 // background random images
-import backgroundImg1 from '../assets/Images/randomBgimg/codingbg1.jpg'
+import backgroundImg1 from '../assets/Images/randombgimg/codingbg1.jpg'
 import backgroundImg2 from '../assets/Images/randombgimg/codingbg2.jpg'
 import backgroundImg3 from '../assets/Images/randombgimg/codingbg3.jpg'
 import backgroundImg4 from '../assets/Images/randombgimg/codingbg4.jpg'
