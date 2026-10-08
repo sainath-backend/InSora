@@ -53,9 +53,8 @@ export const sendOTP = async (req, res) => {
 
 
         // return response successfully
-        res.status(200).json({
+        res.status(500).json({
             success: true,
-            otp,
             message: 'Otp sent successfully'
         });
     }
@@ -138,14 +137,13 @@ export const signUp = async (req, res) => {
             gender: null, dateOfBirth: null, about: null, contactNumber: null
         });
 
-        let approved = "";
-        approved === "Instructor" ? (approved = false) : (approved = true);
+        const approved = accountType === "Instructor" ? false : true;
 
         // create entry in DB
         const userData = await User.create({
             firstName, lastName, email, password: hashedPassword, contactNumber,
-            accountType: accountType, additionalDetails: profileDetails._id,
-            approved: approved,
+            accountType, additionalDetails: profileDetails._id,
+            approved,
             image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`
         });
 
