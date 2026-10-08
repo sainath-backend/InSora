@@ -76,8 +76,14 @@ export const paymentSuccessEmail = (name, amount, orderId, paymentId) => {
                 <p>Your Payment ID is <b>${paymentId}</b></p>
                 <p>Your Order ID is <b>${orderId}</b></p>
             </div>
-            <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-                    href="mailto:info@InSora.com">info@InSora.com</a>. We are here to help!</div>
+            <div class="support">
+                If you have any questions or need assistance, please feel free to reach
+                out to us at
+                <a href="mailto:insora.support@gmail.com">
+                    insora.support@gmail.com
+                </a>.
+                We are here to help!
+            </div>
         </div>
     </body>
     
