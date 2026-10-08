@@ -5,6 +5,7 @@ const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: 465,
     secure: true,
+    family: 4,
     pool: true,             // Keeps the socket connection alive
     maxConnections: 5,      // Limits concurrent connections
     maxMessages: 100,       // Sends up to 100 messages per connection
