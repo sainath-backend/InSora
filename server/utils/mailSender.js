@@ -6,8 +6,8 @@ dotenv.config();
 // Reuse the transporter instance across API calls
 const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
-    port: 465,
-    secure: true,
+    port: 587,                 // 👈 Switch from 465 to 587
+    secure: false,
     family: 4,
     pool: true,             // Keeps the socket connection alive
     maxConnections: 5,      // Limits concurrent connections
