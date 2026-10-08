@@ -14,13 +14,18 @@ import Course_Card from "./Course_Card"
 
 
 function Course_Slider({ Courses }) {
+  
+  if (!Courses?.length) {
+    return null
+  }
+
   return (
     <>
       {Courses?.length ? (
         <Swiper
           slidesPerView={1}
           spaceBetween={25}
-          loop={true}
+          loop={Courses.length > 1}
           // modules={[ Pagination]}
 
           breakpoints={{
@@ -30,7 +35,7 @@ function Course_Slider({ Courses }) {
           }}
           className="max-h-[30rem] pt-8 px-2"
         >
-          {Courses?.map((course, i) => (
+          {Courses.map((course, i) => (
             <SwiperSlide key={i}>
               <Course_Card course={course} Height={"h-[250px]"} />
             </SwiperSlide>

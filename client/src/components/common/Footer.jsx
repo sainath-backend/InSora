@@ -170,7 +170,7 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">© 2023 InSora</div>
+          <div className="text-center">© 2026 InSora</div>
         </div>
       </div>
     </div>

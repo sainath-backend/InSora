@@ -67,7 +67,7 @@ export const paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     
     <body>
         <div class="container">
-            <a href="https://insora-nxjd.onrender.com"><img class="logo" src="https://i.ibb.co/7Xyj3PC/logo.png"
+            <a href="https://insora-nxjd.onrender.com"><img class="logo" src="https://ibb.co/nsmyftw4"
                     alt="InSora Logo"></a>
             <div class="message">Course Payment Confirmation</div>
             <div class="body">

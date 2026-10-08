@@ -40,7 +40,8 @@ function ReviewSlider() {
 
   
   // console.log('reviews= ', reviews)
-  if(!reviews) return;
+  // if(!reviews) return;
+  if (!reviews?.length) return null;
 
 
   return (
@@ -62,7 +63,7 @@ function ReviewSlider() {
             },
           }}
           spaceBetween={25}
-          loop={true}
+          loop={reviews.length > 1}
           freeMode={true}
           autoplay={{
             delay: 2500,

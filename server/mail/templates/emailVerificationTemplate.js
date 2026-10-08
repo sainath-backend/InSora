@@ -67,7 +67,7 @@ const otpTemplate = (otp) => {
 	<body>
 		<div class="container">
 			<a href="https://insora-nxjd.onrender.com"><img class="logo"
-					src="https://i.ibb.co/7Xyj3PC/logo.png" alt="InSora Logo"></a>
+					src="https://ibb.co/nsmyftw4" alt="InSora Logo"></a>
 			<div class="message">OTP Verification Email</div>
 			<div class="body">
 				<p>Dear User,</p>
