@@ -30,18 +30,21 @@ export function sendOtp(email, navigate) {
 
       // console.log(response.data.success)
       if (!response.data.success) {
-        throw new Error(response.data.message);
+        throw new Error(response.data.message || "Could Not Send OTP");
       }
 
-      navigate("/verify-email");
       toast.success("OTP Sent Successfully");
+      navigate("/verify-email");
     } catch (error) {
       console.log("SENDOTP API ERROR --> ", error);
-      toast.error(error.response.data?.message);
-      // toast.error("Could Not Send OTP")
-    }
-    dispatch(setLoading(false));
+      const errorMessage =
+        error.response?.data?.message || error.message || "Could Not Send OTP";
+      toast.error(errorMessage);
+    }finally{
+      dispatch(setLoading(false));
     toast.dismiss(toastId);
+    }
+
   }
 }
 
