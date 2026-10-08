@@ -53,7 +53,7 @@ export const sendOTP = async (req, res) => {
 
 
         // return response successfully
-        res.status(500).json({
+        res.status(200).json({
             success: true,
             message: 'Otp sent successfully'
         });
@@ -61,7 +61,7 @@ export const sendOTP = async (req, res) => {
 
     catch (error) {
         console.log('Error while generating Otp - ', error);
-        res.status(200).json({
+        res.status(500).json({
             success: false,
             message: 'Error while generating Otp',
             error: error.message
